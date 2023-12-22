@@ -50,20 +50,20 @@ async function run() {
       res.send(result);
     })
 
-    // app.patch("/tasks/:id", async(req, res) => {
-    //   const id = req.params.id;
-    //   const filter = { _id: new ObjectId(id) };
-    //   const updateStatus = req.body;
-    //   console.log(updateStatus);
-    //   const updatedDocs = {
-    //     $set: {
-    //        status: updateStatus.status
-    //     },
-    //   };
-    //   const result = await taskCollection.updateOne(filter, updatedDocs);
-    //   res.send(result);
+    app.patch("/tasks/:id", async(req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const updateStatus = req.body;
+      console.log(updateStatus);
+      const updatedDocs = {
+        $set: {
+           status: updateStatus.status
+        },
+      };
+      const result = await taskCollection.updateOne(filter, updatedDocs);
+      res.send(result);
 
-    // })
+    })
 
 
 
