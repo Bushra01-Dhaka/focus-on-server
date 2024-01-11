@@ -50,14 +50,15 @@ async function run() {
       const updatedTasks = req.body;
       const updated = {
         $set : {
+          title: updatedTasks.title,
           description: updatedTasks.description, 
           deadlines: updatedTasks.deadlines, 
           priority: updatedTasks.priority, 
           email: updatedTasks.email, 
-          newStatus: updatedTasks.newStatus,
+          newStatus: updatedTasks.status,
         }
       }
-      const result = coffeeCollection.updateOne(filter, updated, options);
+      const result = taskCollection.updateOne(filter, updated, options);
       res.send(result);
     })
 
